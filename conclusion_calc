@@ -1,0 +1,55 @@
+# good sleep % calc for students 66.87%
+m_f<-table(BandData3$Sleep_type)
+m_f
+m_f_good=(105/157)*100
+m_f_good
+
+
+#male female good sleep df
+m_f_sleep<-data.frame(BandData3[which(BandData3$Sleep_type=='Good_sleep'),])
+#male female good sleep on weekend
+m_f_sleep_we<-data.frame(m_f_sleep[which(m_f_sleep$Weekend=='TRUE'),]) # sun
+#male female good sleep on other days
+m_f_sleep_wd<-data.frame(m_f_sleep[which(m_f_sleep$Weekend=='FALSE'),]) # other
+
+#overall  gender-wise good sleep #female 62.85% #male 37.14
+m_f_sleep_we_good<-table(m_f_sleep$Gender)# all days
+m_f_sleep_we_good
+
+# created male data frame
+male<-data.frame(BandData3[which(BandData3$Gender=='M'),])
+m_we<-data.frame(male[which(male$Weekend=='TRUE'),]) # sun
+m_wd<-data.frame(male[which(male$Weekend=='FALSE'),])# other days
+
+
+#calc male good sleep on weekends 41.66%
+male_we<-table(m_we$Sleep_type) 
+male_we
+male_good_we=(5/12)*100
+male_good_we
+
+#calc male good sleep on weekdays 49.27%
+male_wd<-table(m_wd$Sleep_type) 
+male_wd
+male_good_wd=(34/69)*100
+male_good_wd
+
+#created female df
+female<-data.frame(BandData3[which(BandData3$Gender=='F'),])
+f_we<-data.frame(female[which(female$Weekend=='TRUE'),])#sun
+f_wd<-data.frame(female[which(female$Weekend=='FALSE'),])#other days
+
+
+#calc female good sleep on weekends 80% good sleep
+female_we<-table(f_we$Sleep_type) 
+female_we
+female_good_we=(8/10)*100
+female_good_we
+
+#calc female good sleep on weekdays 87.87%
+female_wd<-table(f_wd$Sleep_type) 
+female_wd
+female_good_wd=(58/66)*100
+female_good_wd
+
+
